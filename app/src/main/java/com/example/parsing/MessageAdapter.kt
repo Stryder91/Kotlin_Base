@@ -24,6 +24,7 @@ class MessageAdapter(
             holder = ViewHolder()
             holder.messageTextView = view.findViewById(R.id.message_list_title)
             holder.authorTextView = view.findViewById(R.id.message_list_author)
+            holder.followerTextView = view.findViewById(R.id.message_list_followers)
             view.tag = holder
         } else {
             view = convertView
@@ -34,7 +35,7 @@ class MessageAdapter(
         val message = getItem(position) as Message
         holder.messageTextView.text = message.text
         holder.authorTextView.text = message.user.name
-
+        holder.followerTextView.text = message.user.followers
         return view
     }
 
@@ -53,6 +54,7 @@ class MessageAdapter(
     private class ViewHolder {
         lateinit var messageTextView: TextView
         lateinit var authorTextView: TextView
+        lateinit var followerTextView: TextView
     }
 
 }
